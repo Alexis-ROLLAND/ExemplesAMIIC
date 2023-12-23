@@ -19,22 +19,19 @@
 /*	Implémentation du code */
 //------------------------------------------------------------------------------
 void Initialiser(void){
-    BP_TRIS = 1;        // RE8 is configured as GPIO Input
-    
-    
+    //...
+    BP_TRIS = 1;        // RE8-INT1 is configured as GPIO Input
+    //...
     INTCON2bits.INT1EP = 0;     // Interrupt on positive edge
-    
     IFS1bits.INT1IF = 0;        // Reset interrupt flag
     IEC1bits.INT1IE = 1;        // Enable INT1 interrupt
     IPC5bits.INT1IP = 4;        // INT1 priority is 4
-    
+    //...
 }
 //------------------------------------------------------------------------------
 void   TraiterActionBP(void){
     // Whatever...
-    int i=0;
-    
-    i = i +4;
+    return;
 }
 //------------------------------------------------------------------------------
 

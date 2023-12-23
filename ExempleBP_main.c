@@ -34,33 +34,30 @@
 /* Directives de compilation - Macros		*/
 
 
-
+//------------------------------------------------------------------------------
 /* Déclarations des variables globales 	*/
 soft_flag_t evtBP = RESET;
 
 
-
+//------------------------------------------------------------------------------
 /* Programme Principal			*/
 int main(void){
-    // Variables locales au main
-
-
     Initialiser();		// Appel fonction d'initialisation
-
     while(1){
+        // ... 
         if (evtBP == SET){
             TraiterActionBP();
             evtBP = RESET;
         }
+        // ...
     }
 }	
-
-/*
-void _ISR __attribute__((no_auto_psv)) _INT1Interrupt (void)
-{
-  // interrupt service routine code here...
-} // _InterruptVector
-*/
+//------------------------------------------------------------------------------
+void _ISR __attribute__((no_auto_psv)) _INT1Interrupt (void){
+    evtBP = SET;                // Set Software Flag
+    IFS1bits.INT1IF = 0;        // Reset interrupt flag / Acquittement Interruption
+} /* _INT1Interrupt   */
+//------------------------------------------------------------------------------
 
 
 
