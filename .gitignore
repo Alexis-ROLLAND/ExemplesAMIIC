@@ -8,6 +8,8 @@ build/
 debug/
 dist/
 .generated_files/
+queuelogs/
+
 
 # Node artifact files
 node_modules/
